@@ -5,17 +5,19 @@
         <span class="match-item-date-month">{{gameTime(timestamp).month}}</span>
         <span class="match-item-date-date">{{gameTime(timestamp).date}}</span>
     </div>
-    <div class="match-item-team-container">
-      <div class="match-item-team-logo-container">
-        <img class="team-logo" :src="homeTeamLogo" />
+    <div class="match-item-teams">
+      <div class="match-item-team-container">
+        <div class="match-item-team-logo-container">
+          <img class="team-logo" :src="homeTeamLogo" />
+        </div>
+        <span class="match-item-team-name">{{ homeTeamName }}</span>
+      </div><span class="match-item-vs">vs</span>
+      <div class="match-item-team-container">
+        <div class="match-item-team-logo-container">
+          <img class="team-logo" :src="awayTeamLogo" />
+        </div>
+        <span class="match-item-team-name">{{ awayTeamName }}</span>
       </div>
-      {{ homeTeamName }}
-    </div><span class="match-item-vs">vs</span>
-    <div class="match-item-team-container">
-      <div class="match-item-team-logo-container">
-        <img class="team-logo" :src="awayTeamLogo" />
-      </div>
-      {{ awayTeamName }}
     </div>
   </div>
 </template>
@@ -87,27 +89,46 @@ export default {
     background: $color-grey-dark;
     text-align: center;
     width: 300px;
-    display: inline-flex;
-    flex-direction: row;
     padding: 10px;
     height: 200px;
     margin-bottom: 15px;
+
+    &-date {
+      &-day,
+      &-month {
+        padding-right: 5px;
+      }
+    }
+
+    &-teams {
+      width: 100%;
+      display: inline-flex;
+      flex-direction: row;
+    }
+
     img.team-logo {
       max-width: 50px;
       max-height: 50px;
       display: inline-block;
     }
-    &-team-container {
-      width: 45%;
-      padding-top: 40px;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+
+    &-team {
+      &-container {
+        width: 45%;
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      &-name {
+        line-height: 16px;
+      }
     }
+
     &-vs {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: space-around;
+      display: inline-block;
+      width: 10%;
+      padding-top: 50px;
     }
   }
 </style>
