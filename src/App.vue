@@ -4,7 +4,7 @@
 <template>
   <body id="Body" class="t-dark">
     <main class="o-main u-vert-center">
-      <Matches :data="compData" />
+      <Matches :matchData="matchData" />
     </main>
   </body>
 </template>
@@ -14,7 +14,7 @@
 </style>
 <script lang="ts">
 import axios from 'axios'
-import Matches from "./components/Matches.vue"
+import Matches from "./components/matches/Matches.vue"
 
 export default {
   components: {
@@ -42,7 +42,7 @@ export default {
     axios.get('./data/match-data.json')
       .then(response => {
         console.log(response.data);
-        this.matchData = response.data;
+        this.matchData = response.data.matches;
       })
   }
 }
