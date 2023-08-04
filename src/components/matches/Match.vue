@@ -1,16 +1,17 @@
 <template>
   <div class="match-item">
-    <span>
-      <div class="match-item-team-container">
+    <div class="match-item-team-container">
+      <div class="match-item-team-logo-container">
         <img class="team-logo" :src="homeTeamLogo" />
-        {{ homeTeamName }}
       </div>
-    </span> vs <span>
-      <div class="match-item-team-container">
+      {{ homeTeamName }}
+    </div><span class="match-item-vs">vs</span>
+    <div class="match-item-team-container">
+      <div class="match-item-team-logo-container">
         <img class="team-logo" :src="awayTeamLogo" />
-        {{ awayTeamName }}
       </div>
-    </span>
+      {{ awayTeamName }}
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -41,13 +42,25 @@ export default {
     width: 300px;
     display: inline-flex;
     flex-direction: row;
+    padding: 10px;
+    height: 200px;
+    margin-bottom: 15px;
     img.team-logo {
       max-width: 50px;
       max-height: 50px;
-      display: block;
+      display: inline-block;
     }
     &-team-container {
+      width: 45%;
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
       text-align: center;
+    }
+    &-vs {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
   }
 </style>

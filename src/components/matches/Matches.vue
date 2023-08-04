@@ -1,12 +1,14 @@
 <template>
-  <span class="match-item-container" v-for="matchItem in matchData" :key="matchItem.id">
-    <Match 
-      :homeTeamName="matchItem.homeTeam.name"
-      :homeTeamLogo="matchItem.homeTeam.crest"
-      :awayTeamName="matchItem.awayTeam.name"
-      :awayTeamLogo="matchItem.awayTeam.crest"
-    />
-  </span>
+  <div class="matches-container">
+    <span class="match-item-container" v-for="matchItem in matchData" :key="matchItem.id">
+      <Match 
+        :homeTeamName="matchItem.homeTeam.name"
+        :homeTeamLogo="matchItem.homeTeam.crest"
+        :awayTeamName="matchItem.awayTeam.name"
+        :awayTeamLogo="matchItem.awayTeam.crest"
+      />
+    </span>
+  </div>
 </template>
 <script lang="ts">
 import Match from './Match.vue'
@@ -26,3 +28,10 @@ import Match from './Match.vue'
 
   }
 </script>
+<style scoped lang="scss">
+  .matches-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+</style>
