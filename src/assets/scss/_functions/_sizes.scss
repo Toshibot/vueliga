@@ -1,0 +1,17 @@
+
+// PX to REMs
+@function toRems($size) {
+  $remSize: calc($size / $size-font-body);
+  @return #{$remSize}rem;
+}
+
+// PX to EMs
+@function toEms($size) {
+    $emSize: calc($size / $size-font-body);
+    @return #{$emSize}em;
+}
+
+// Fractions
+@function fractiontoDecimal($first, $second) {
+  @return calc($first / $second);
+}
