@@ -2,6 +2,7 @@
   <div class="matches-container">
     <span class="match-item-container" v-for="matchItem in matchData" :key="matchItem.id">
       <Match 
+        :timestamp="matchItem.utcDate"
         :homeTeamName="matchItem.homeTeam.name"
         :homeTeamLogo="matchItem.homeTeam.crest"
         :awayTeamName="matchItem.awayTeam.name"

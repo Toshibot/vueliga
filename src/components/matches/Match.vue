@@ -1,5 +1,10 @@
 <template>
   <div class="match-item">
+    <div class="match-item-date">
+        <span class="match-item-date-day">{{gameTime(timestamp).day}}</span>
+        <span class="match-item-date-month">{{gameTime(timestamp).month}}</span>
+        <span class="match-item-date-date">{{gameTime(timestamp).date}}</span>
+    </div>
     <div class="match-item-team-container">
       <div class="match-item-team-logo-container">
         <img class="team-logo" :src="homeTeamLogo" />
@@ -17,6 +22,9 @@
 <script lang="ts">
 export default {
   props: {
+    timestamp: {
+      type: String
+    },
     homeTeamName: {
       type: String
     },
@@ -32,6 +40,45 @@ export default {
     clubData: {
       type: Object
     }
+  },
+  methods: {
+    gameTime(timestamp:any) {
+        let date = new Date(timestamp);
+        let dayValue = date.getDay();
+        let monthValue = date.getMonth();
+        let dateValue = date.getDate();
+        let hoursValue = date.getHours();
+        let minutesValue = date.getMinutes();
+        let daysOfTheWeek = [
+          "Sunday", 
+          "Monday", 
+          "Tuesday", 
+          "Wednesday", 
+          "Thursday", 
+          "Friday", 
+          "Saturday"
+        ];
+        let monthsOfTheYear = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ];
+        return {
+          day: daysOfTheWeek[dayValue],
+          month: monthsOfTheYear[monthValue],
+          date: dateValue,
+          time: hoursValue + ':' + minutesValue
+        }
+      }
   }
 }
 </script>
