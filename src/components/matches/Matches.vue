@@ -1,8 +1,10 @@
 <template>
   <span class="match-item-container" v-for="matchItem in matchData" :key="matchItem.id">
     <Match 
-      :homeTeam="matchItem.homeTeam.name"
-      :awayTeam="matchItem.awayTeam.name"
+      :homeTeamName="matchItem.homeTeam.name"
+      :homeTeamLogo="matchItem.homeTeam.crest"
+      :awayTeamName="matchItem.awayTeam.name"
+      :awayTeamLogo="matchItem.awayTeam.crest"
     />
   </span>
 </template>
